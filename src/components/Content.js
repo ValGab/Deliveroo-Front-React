@@ -1,11 +1,13 @@
 import Section from "./Section";
 
-const Content = ({ data }) => {
+const Content = ({ categories }) => {
   return (
     <main className="container">
-      {data.map((element, index) => {
+      {categories.map((category, index) => {
         return (
-          <Section key={index} title={element.name} data={element.meals} />
+          category.meals.length > 0 && (
+            <Section key={index} title={category.name} menus={category.meals} />
+          )
         );
       })}
     </main>

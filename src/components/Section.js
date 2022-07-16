@@ -1,20 +1,28 @@
-const Section = ({ title, data }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const Section = ({ title, menus }) => {
   return (
     <section>
       <h2>{title}</h2>
       <div className="menus">
-        {data.map((element, index) => {
+        {menus.map((menu, index) => {
           return (
             <div className="menu-item" key={index}>
               <div className="menu-info">
-                <h3>{element.title}</h3>
-                <p className="menu-description">{element.description}</p>
-                <p className="price">{element.price}</p>
+                <h3>{menu.title}</h3>
+                <p className="menu-description">{menu.description}</p>
+                <div className="price-popular">
+                  <p className="menu-price">{menu.price} €</p>
+                  {menu.popular && (
+                    <span>
+                      <FontAwesomeIcon icon="star" />
+                      Populaire
+                    </span>
+                  )}
+                </div>
               </div>
               <div className="menu-item-img">
-                {element.picture && (
-                  <img src={element.picture} alt={element.title} />
-                )}
+                {menu.picture && <img src={menu.picture} alt={menu.title} />}
               </div>
             </div>
           );

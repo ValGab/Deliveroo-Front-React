@@ -3,6 +3,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faEnvelope,
+  faKey,
+  faListAlt,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+import Footer from "./components/Footer";
+library.add(faEnvelope, faStar, faKey, faListAlt);
 
 function App() {
   const [data, setData] = useState();
@@ -29,7 +38,8 @@ function App() {
   ) : (
     <div className="App">
       <Header data={data} />
-      <Content data={data.categories} />
+      <Content categories={data.categories} />
+      <Footer />;
     </div>
   );
 }
