@@ -28,9 +28,9 @@ h2 {
 }
 
 h3 {
-  font-size: 18px;
-  line-height: 16px;
-  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 10px;
 }
 
 /* HEADER */
@@ -94,28 +94,29 @@ section {
 
 .menu-item {
   height: 160px;
-  width: calc((100% - 10px) / 2);
+  width: calc((100% - 15px) / 2);
   display: flex;
   justify-content: space-between;
   background-color: white;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
   border-radius: 15px;
 }
 
 .menu-item:nth-child(2n) {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .menu-info {
   display: flex;
   flex-direction: column;
+  width: calc(100% - 130px);
 }
 
 .menu-item-img {
   height: 130px;
   width: 130px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .menu-item-img img {
@@ -124,4 +125,9 @@ section {
   object-fit: cover;
   position: center;
   border-radius: 5px;
+}
+
+.menu-description {
+  margin-bottom: 10px;
+  color: #868a8a;
 }

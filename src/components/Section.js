@@ -8,8 +8,8 @@ const Section = ({ title, data }) => {
             <div className="menu-item" key={index}>
               <div className="menu-info">
                 <h3>{element.title}</h3>
-                <p>{element.description}</p>
-                <p>{element.price}</p>
+                <p className="menu-description">{element.description}</p>
+                <p className="price">{element.price}</p>
               </div>
               <div className="menu-item-img">
                 {element.picture && (
