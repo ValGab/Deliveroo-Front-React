@@ -1,16 +1,22 @@
 import Section from "./Section";
 
-const Content = ({ categories }) => {
+const Content = ({ categories, cart, setCart }) => {
   return (
-    <main className="container">
+    <div className="categories">
       {categories.map((category, index) => {
         return (
           category.meals.length > 0 && (
-            <Section key={index} title={category.name} menus={category.meals} />
+            <Section
+              key={index}
+              title={category.name}
+              menus={category.meals}
+              cart={cart}
+              setCart={setCart}
+            />
           )
         );
       })}
-    </main>
+    </div>
   );
 };
 

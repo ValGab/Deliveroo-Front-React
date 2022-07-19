@@ -1,13 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Section = ({ title, menus }) => {
+const Section = ({ title, menus, cart, setCart }) => {
   return (
     <section>
       <h2>{title}</h2>
       <div className="menus">
-        {menus.map((menu, index) => {
+        {menus.map((menu) => {
           return (
-            <div className="menu-item" key={index}>
+            <div
+              className="menu-item"
+              key={menu.id}
+              onClick={() => {
+                const newTab = [...cart];
+                menu.quantity = 1;
+                newTab.push(menu);
+                setCart(newTab);
+              }}
+            >
               <div className="menu-info">
                 <h3>{menu.title}</h3>
                 <p className="menu-description">{menu.description}</p>
