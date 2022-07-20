@@ -65,7 +65,10 @@ const Cart = ({ cart, setCart }) => {
             </div>
           </div>
         ) : (
-          <p>Panier vide</p>
+          <div className="cart-info">
+            <button className="validate disable">Valider mon panier</button>
+            <p className="empty">Votre panier est vide</p>
+          </div>
         )}
       </div>
     </div>
