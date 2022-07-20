@@ -12,9 +12,29 @@ const Section = ({ title, menus, cart, setCart }) => {
               key={menu.id}
               onClick={() => {
                 const newTab = [...cart];
-                menu.quantity = 1;
-                newTab.push(menu);
-                setCart(newTab);
+                if (newTab.length > 0) {
+                  let isPresent = false;
+                  for (let i = 0; i < newTab.length; i++) {
+                    if (menu.title === newTab[i].title) {
+                      return (isPresent = true);
+                    } else {
+                      isPresent = false;
+                    }
+                  }
+                  if (!isPresent) {
+                    menu.quantity = 1;
+                    newTab.push(menu);
+                    setCart(newTab);
+                  } else {
+                    menu.quantity++;
+                    newTab.push(menu);
+                    setCart(newTab);
+                  }
+                } else {
+                  menu.quantity = 1;
+                  newTab.push(menu);
+                  setCart(newTab);
+                }
               }}
             >
               <div className="menu-info">
