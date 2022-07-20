@@ -43,7 +43,10 @@ const Cart = ({ cart, setCart }) => {
                   <div className="cart-line">
                     <p className="cart-title">{element.title}</p>
                     <p className="cart-price">
-                      {(element.price * element.quantity).toFixed(2)} €
+                      {(element.price * element.quantity)
+                        .toFixed(2)
+                        .replace(".", ",")}{" "}
+                      €
                     </p>
                   </div>
                 </div>
@@ -52,16 +55,16 @@ const Cart = ({ cart, setCart }) => {
             <div className="cart-result">
               <div className="subtotal">
                 <span>Sous-total</span>
-                <span>{subTotal.toFixed(2)} €</span>
+                <span>{subTotal.toFixed(2).replace(".", ",")} €</span>
               </div>
               <div className="service">
                 <span>Frais de livraison</span>
-                <span>2.50 €</span>
+                <span>2,50 €</span>
               </div>
             </div>
             <div className="total">
               <span>Total</span>
-              <span>{(subTotal + 2.5).toFixed(2)} €</span>
+              <span>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</span>
             </div>
           </div>
         ) : (

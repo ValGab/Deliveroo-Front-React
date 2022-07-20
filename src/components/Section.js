@@ -40,7 +40,7 @@ const Section = ({ title, menus, cart, setCart }) => {
                 <h3>{menu.title}</h3>
                 <p className="menu-description">{menu.description}</p>
                 <div className="price-popular">
-                  <p className="menu-price">{menu.price} €</p>
+                  <p className="menu-price">{menu.price.replace(".", ",")} €</p>
                   {menu.popular && (
                     <span>
                       <FontAwesomeIcon icon="star" />
