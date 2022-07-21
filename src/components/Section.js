@@ -13,15 +13,13 @@ const Section = ({ title, menus, cart, setCart }) => {
               onClick={() => {
                 const newTab = [...cart];
                 if (newTab.length > 0) {
-                  let counter = 0;
+                  let isPresent = false;
                   for (let i = 0; i < newTab.length; i++) {
                     if (menu.id === newTab[i].id) {
-                      counter++;
-                    } else {
-                      counter = counter + 0;
+                      isPresent = true;
                     }
                   }
-                  if (counter === 0) {
+                  if (!isPresent) {
                     menu.quantity = 1;
                     newTab.push(menu);
                     setCart(newTab);
