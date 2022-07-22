@@ -279,6 +279,8 @@ section {
 .cart-title {
   width: 70%;
   line-height: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .cart-result {

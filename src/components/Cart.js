@@ -69,7 +69,9 @@ const Cart = ({ cart, setCart, restaurant }) => {
                     </button>
                   </div>
                   <div className="cart-line">
-                    <p className="cart-title">{element.title}</p>
+                    <a className="cart-title" href={`#${element.id}`}>
+                      {element.title}
+                    </a>
                     <p className="cart-price">
                       {(element.price * element.quantity)
                         .toFixed(2)
@@ -170,7 +172,9 @@ CART - MOBILE
                         </button>
                       </div>
                       <div className="cart-line">
-                        <p className="cart-title">{element.title}</p>
+                        <a className="cart-title" href={`#${element.id}`}>
+                          {element.title}
+                        </a>
                         <p className="cart-price">
                           {(element.price * element.quantity)
                             .toFixed(2)

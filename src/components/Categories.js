@@ -50,7 +50,7 @@ const Categories = ({ title, menus, cart, setCart }) => {
                 }
               }}
             >
-              <div className="menu-info">
+              <div className="menu-info" id={menu.id}>
                 <h3>{menu.title}</h3>
                 <p className="menu-description">
                   {reducingString(menu.description)}
