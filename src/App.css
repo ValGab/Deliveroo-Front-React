@@ -394,8 +394,30 @@ footer a {
     flex-direction: column;
   }
 
+  h2 {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 17px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+
   .categories {
     width: 100%;
+  }
+
+  .menu-info {
+    margin: -5px;
+  }
+
+  .menu-description {
+    font-size: 15px;
+  }
+
+  .menu-price {
+    font-size: 17px;
   }
 
   .cart-container {
@@ -470,5 +492,10 @@ footer a {
     text-align: right;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  footer {
+    align-items: flex-start;
+    height: 140px;
   }
 }
