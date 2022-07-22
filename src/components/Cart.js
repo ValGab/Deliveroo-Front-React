@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({ cart, setCart, restaurant }) => {
   const [showMiniCart, setShowMiniCart] = useState(false);
 
   let subTotal = 0;
@@ -16,19 +16,24 @@ const Cart = ({ cart, setCart }) => {
   return (
     <div className="cart-container">
       <div className="cart">
+        {/* -------------------------------------------------------------
+        
+        
+      CART - DESKTOP 
+      
+      
+  ----------------------------------------------------------- */}
         {cart.length > 0 ? (
           <div className="cart-info">
-            <span className="close" onClick={() => setShowMiniCart(false)}>
-              X
-            </span>
             <button
               className="validate"
               onClick={() => {
                 alert(
                   `Merci pour votre commande de ${(subTotal + 2.5)
                     .toFixed(2)
-                    .replace(".", ",")} € !`
+                    .replace(".", ",")} € chez ${restaurant} !`
                 );
+                setCart([]);
               }}
             >
               Valider mon panier
@@ -100,15 +105,15 @@ const Cart = ({ cart, setCart }) => {
         {/* ----------------------------------------
 
 
-
 CART - MOBILE
-
 
 
 ------------------------------------------------- */}
         {!showMiniCart ? (
+          // Si le state showMiniCart est false, le panier "mobile" ne s'affiche pas, sinon il peut s'afficher
           <p>
             {cart.length > 0 ? (
+              // Si le panier contient au moins un élément, j'affiche le bouton "Voir le panier"
               <button
                 className="showCart"
                 onClick={() => {
@@ -120,21 +125,20 @@ CART - MOBILE
                 <p>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</p>
               </button>
             ) : (
+              // Si le panier est vide, j'affiche "Panier vide"
               <div>
-                <button className="validate-mini-disable">
-                  Valider mon panier
-                </button>
+                <button className="validate-mini-disable">Panier vide </button>
               </div>
             )}
           </p>
         ) : (
           <>
-            {cart.length > 0 ? (
+            {cart.length > 0 && (
+              // Si le panier contient au moins un élément, on affiche le panier
               <div className="mini-cart-info">
                 <span className="close" onClick={() => setShowMiniCart(false)}>
                   X
                 </span>
-                {/* <button className="validate">Valider mon panier</button> */}
                 {cart.map((element, index) => {
                   return (
                     <div className="cart-item" key={index}>
@@ -192,10 +196,6 @@ CART - MOBILE
                   <span>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</span>
                 </div>
               </div>
-            ) : (
-              <div className="mini-cart-info">
-                <button className="validate disable">Valider mon panier</button>
-              </div>
             )}
 
             {cart.length > 0 ? (
@@ -205,17 +205,16 @@ CART - MOBILE
                   alert(
                     `Merci pour votre commande de ${(subTotal + 2.5)
                       .toFixed(2)
-                      .replace(".", ",")} € !`
+                      .replace(".", ",")} € chez ${restaurant} !`
                   );
+                  setCart([]);
                 }}
               >
                 <p>Valider mon panier</p>
               </button>
             ) : (
               <div>
-                <button className="validate-mini-disable">
-                  Valider mon panier
-                </button>
+                <button className="validate-mini-disable">Panier vide </button>
               </div>
             )}
           </>

@@ -1,6 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Section = ({ title, menus, cart, setCart }) => {
+const Categories = ({ title, menus, cart, setCart }) => {
+  const reducingString = (string) => {
+    let result = "";
+    for (let i = 0; i < string.length; i++) {
+      if (result.length < 55) {
+        result = result + string[i];
+      } else {
+        if (string[i] === " ") {
+          return result;
+        } else {
+          result = result + string[i];
+        }
+      }
+    }
+    return result;
+  };
   return (
     <section>
       <h2>{title}</h2>
@@ -12,6 +27,7 @@ const Section = ({ title, menus, cart, setCart }) => {
               key={menu.id}
               onClick={() => {
                 const newTab = [...cart];
+                // Si le panier a un élément, je regarde si le plat est déjà présent sinon je l'ajoute avec quantité 1
                 if (newTab.length > 0) {
                   let isPresent = false;
                   for (let i = 0; i < newTab.length; i++) {
@@ -36,7 +52,9 @@ const Section = ({ title, menus, cart, setCart }) => {
             >
               <div className="menu-info">
                 <h3>{menu.title}</h3>
-                <p className="menu-description">{menu.description}</p>
+                <p className="menu-description">
+                  {reducingString(menu.description)}
+                </p>
                 <div className="price-popular">
                   <p className="menu-price">{menu.price.replace(".", ",")} €</p>
                   {menu.popular && (
@@ -58,4 +76,4 @@ const Section = ({ title, menus, cart, setCart }) => {
   );
 };
 
-export default Section;
+export default Categories;

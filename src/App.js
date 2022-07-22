@@ -7,6 +7,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
+// J'ajoute l'icone star à ma librairie FA pour l'utiliser
 library.add(faStar);
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
-      console.log(error.response); // contrairement au error.message d'Express sur back
+      console.log(error.response); // différent du error.message d'Express sur back
     }
   };
 
@@ -37,7 +38,7 @@ function App() {
       <Header data={data} />
       <main className="container">
         <Content categories={data.categories} cart={cart} setCart={setCart} />
-        <Cart cart={cart} setCart={setCart} />
+        <Cart cart={cart} setCart={setCart} restaurant={data.restaurant.name} />
       </main>
       <Footer />
     </div>
