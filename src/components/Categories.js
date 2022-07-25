@@ -41,6 +41,7 @@ const Categories = ({ title, menus, cart, setCart }) => {
                     setCart(newTab);
                   } else {
                     menu.quantity++;
+                    console.log(menu);
                     setCart(newTab);
                   }
                 } else {

@@ -3,6 +3,8 @@ import { useState } from "react";
 const Cart = ({ cart, setCart, restaurant }) => {
   const [showMiniCart, setShowMiniCart] = useState(false);
 
+  const shippingCost = 2.5;
+
   let subTotal = 0;
   for (let i = 0; i < cart.length; i++) {
     subTotal = subTotal + Number(cart[i].price * cart[i].quantity);
@@ -29,7 +31,7 @@ const Cart = ({ cart, setCart, restaurant }) => {
               className="validate"
               onClick={() => {
                 alert(
-                  `Merci pour votre commande de ${(subTotal + 2.5)
+                  `Merci pour votre commande de ${(subTotal + shippingCost)
                     .toFixed(2)
                     .replace(".", ",")} € chez ${restaurant} !`
                 );
@@ -89,12 +91,14 @@ const Cart = ({ cart, setCart, restaurant }) => {
               </div>
               <div className="service">
                 <span>Frais de livraison</span>
-                <span>2,50 €</span>
+                <span>{shippingCost.toFixed(2).replace(".", ",")} €</span>
               </div>
             </div>
             <div className="total">
               <span>Total</span>
-              <span>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</span>
+              <span>
+                {(subTotal + shippingCost).toFixed(2).replace(".", ",")} €
+              </span>
             </div>
           </div>
         ) : (
@@ -113,7 +117,7 @@ CART - MOBILE
 ------------------------------------------------- */}
         {!showMiniCart ? (
           // Si le state showMiniCart est false, le panier "mobile" ne s'affiche pas, sinon il peut s'afficher
-          <p>
+          <div>
             {cart.length > 0 ? (
               // Si le panier contient au moins un élément, j'affiche le bouton "Voir le panier"
               <button
@@ -124,7 +128,9 @@ CART - MOBILE
               >
                 <p>{totalQuantity}</p>
                 <p>Voir mon panier</p>
-                <p>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</p>
+                <p>
+                  {(subTotal + shippingCost).toFixed(2).replace(".", ",")} €
+                </p>
               </button>
             ) : (
               // Si le panier est vide, j'affiche "Panier vide"
@@ -132,7 +138,7 @@ CART - MOBILE
                 <button className="validate-mini-disable">Panier vide </button>
               </div>
             )}
-          </p>
+          </div>
         ) : (
           <>
             {cart.length > 0 && (
@@ -192,12 +198,14 @@ CART - MOBILE
                   </div>
                   <div className="service">
                     <span>Frais de livraison</span>
-                    <span>2,50 €</span>
+                    <span>{shippingCost.toFixed(2).replace(".", ",")} €</span>
                   </div>
                 </div>
                 <div className="total">
                   <span>Total</span>
-                  <span>{(subTotal + 2.5).toFixed(2).replace(".", ",")} €</span>
+                  <span>
+                    {(subTotal + shippingCost).toFixed(2).replace(".", ",")} €
+                  </span>
                 </div>
               </div>
             )}
@@ -207,7 +215,7 @@ CART - MOBILE
                 className="validate-mini"
                 onClick={() => {
                   alert(
-                    `Merci pour votre commande de ${(subTotal + 2.5)
+                    `Merci pour votre commande de ${(subTotal + shippingCost)
                       .toFixed(2)
                       .replace(".", ",")} € chez ${restaurant} !`
                   );
