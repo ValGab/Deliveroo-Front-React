@@ -32,7 +32,14 @@ function App() {
   }, []);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <div className="loader">
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   ) : (
     <div className="App">
       <Header data={data} />
