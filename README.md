@@ -6,7 +6,7 @@
 
 A responsive single page made with React inspired by Deliveroo.
 
-<img src="./src/assets/img/preview/deliveroo1.jpg" alt="deliveroo front"/>
+<img src="./src/assets/img/preview/deliveroo.jpg" alt="deliveroo front"/>
 
 ## Features
 
