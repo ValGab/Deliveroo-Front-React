@@ -17,7 +17,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://deliveroo-back.onrender.com/");
+      const response = await axios.get("https://deliveroo-back.vercel.app/");
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
